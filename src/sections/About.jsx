@@ -20,9 +20,13 @@ const About = () => {
 
                         {/* Left Column: Profile */}
                         <div className="md:col-span-4 flex flex-col items-center text-center">
-                            {/* Placeholder for Photo */}
-                            <div className="w-64 h-64 rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl mb-6 bg-gray-800 flex items-center justify-center text-gray-500">
-                                <span>Your Photo Here</span>
+                            {/* Profile Photo */}
+                            <div className="w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl mb-6">
+                                <img 
+                                    src="/images/Atharva.jpeg" 
+                                    alt="Atharva Pingale" 
+                                    className="w-full h-full object-cover object-top"
+                                />
                             </div>
 
                             {/* Name and Socials */}

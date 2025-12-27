@@ -3,10 +3,13 @@ import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
+import AlertToast from "../components/AlertToast";
+import { triggerConfetti } from "../utils/confetti";
 
 const Contact = () => {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -20,22 +23,35 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+    setLoading(true);
+
+    // Debug: Log env variables (masked)
+    console.log("EmailJS Service ID:", import.meta.env.VITE_APP_EMAILJS_SERVICE_ID?.slice(0, 8) + "...");
+    console.log("EmailJS Public Key:", import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY?.slice(0, 6) + "...");
 
     try {
-      await emailjs.sendForm(
+      const result = await emailjs.sendForm(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         formRef.current,
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
 
-      // Reset form and stop loading
+      console.log("EmailJS Success:", result.status, result.text);
+      
+      // Trigger confetti and show toast
+      triggerConfetti();
+      setShowSuccess(true);
+      
+      // Auto-hide toast after 5 seconds
+      setTimeout(() => setShowSuccess(false), 5000);
+      
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+      alert("Failed to send message. Please try again or email me directly.");
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
@@ -114,6 +130,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Success Toast */}
+      <AlertToast show={showSuccess} onClose={() => setShowSuccess(false)} />
     </section>
   );
 };

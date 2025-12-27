@@ -1,6 +1,6 @@
 import Footer from "./sections/Footer";
 import Contact from "./sections/Contact";
-import TechStack from "./sections/TechStack";
+import Skills from "./sections/Skills";
 import Experience from "./sections/Experience";
 import Hero from "./sections/Hero";
 import ShowcaseSection from "./sections/ShowcaseSection";
@@ -14,7 +14,7 @@ const App = () => (
     <About />
     <ShowcaseSection />
     <Experience />
-    <TechStack />
+    <Skills />
     <Contact />
     <Footer />
   </>
