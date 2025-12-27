@@ -12,8 +12,8 @@ const showcaseProjects = [
     category: "Mobile Application",
     src: "/images/kisaansetu-app.jpg",
     bgColor: "bg-[#E8F5E9]",
-    live: "#",
-    github: "#",
+    live: null,
+    github: "https://github.com/Atharvasp333/KisaanSetu",
     skills: {
       frontend: ["Flutter", "Dart"],
       backend: ["REST APIs", "Firebase", "Node.js", "MongoDB"],
@@ -38,8 +38,8 @@ const showcaseProjects = [
     category: "Web Application",
     src: "/images/Signalist.png",
     bgColor: "bg-[#1a1a2e]",
-    live: "#",
-    github: "#",
+    live: "https://signalist-stock-market-toolkit.vercel.app/",
+    github: "https://github.com/Atharvasp333/Signalist-Stock-Market-Toolkit",
     skills: {
       frontend: ["Next.js", "React", "TypeScript", "Shadcn UI", "TailwindCSS"],
       backend: [
@@ -72,8 +72,8 @@ const showcaseProjects = [
     category: "Social Impact Platform",
     src: "/images/kindmeals-app.jpg",
     bgColor: "bg-[#FFE7EB]",
-    live: "#",
-    github: "#",
+    live: null,
+    github: "https://github.com/Atharvasp333/KindMeals",
     skills: {
       frontend: ["Flutter", "React"],
       backend: ["Node.js", "Express", "MongoDB", "Firebase", "REST API"],
@@ -98,8 +98,8 @@ const showcaseProjects = [
     category: "Healthcare Web Platform",
     src: "/images/medimeet.png",
     bgColor: "bg-[#FFE7EB]",
-    live: "#",
-    github: "#",
+    live: "https://medi-meet-seven-ashy.vercel.app/",
+    github: "https://github.com/Atharvasp333/MediMeet",
     skills: {
       frontend: ["Next.js", "React", "TailwindCSS", "Shadcn UI"],
       backend: ["NeonDB", "Clerk Auth", "REST API", "Vonage Video API"],
@@ -182,32 +182,63 @@ const CompactCard = ({ project, onClick, index }) => {
 // Expanded Card Component (Detail View)
 const ExpandedCard = ({ project, onClose }) => {
   const contentRef = useRef(null);
+  const scrollYRef = useRef(0);
 
-  // Lock body scroll
+  // Lock body scroll and preserve position
   useEffect(() => {
-    const scrollY = window.scrollY;
+    // Store current scroll position
+    scrollYRef.current = window.scrollY;
+    
+    // Calculate scrollbar width to prevent layout shift
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    
+    // Lock body
     document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = "100%";
+    document.body.style.top = `-${scrollYRef.current}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
     document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
 
     return () => {
+      // Unlock body
       document.body.style.position = "";
       document.body.style.top = "";
-      document.body.style.width = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
       document.body.style.overflow = "";
-      window.scrollTo(0, scrollY);
+      document.body.style.paddingRight = "";
+      
+      // Restore scroll position without smooth scrolling
+      window.scrollTo({
+        top: scrollYRef.current,
+        left: 0,
+        behavior: "instant"
+      });
     };
   }, []);
 
   // Close on escape key
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        e.preventDefault();
+        e.stopPropagation();
+        onClose();
+      }
     };
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, [onClose]);
+
+  // Handle close with event prevention
+  const handleClose = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    onClose();
+  };
 
   const expandedContent = (
     <>
@@ -217,7 +248,7 @@ const ExpandedCard = ({ project, onClose }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
-        onClick={onClose}
+        onClick={handleClose}
         className="fixed inset-0 bg-black/80 backdrop-blur-md z-[9998]"
       />
 
@@ -230,18 +261,23 @@ const ExpandedCard = ({ project, onClose }) => {
         >
           {/* Close Button */}
           <motion.button
+            type="button"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ delay: 0.2 }}
-            onClick={onClose}
+            onClick={handleClose}
             className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black-100/80 backdrop-blur-sm flex items-center justify-center hover:bg-black-50 transition-colors border border-black-50"
           >
             <X size={20} />
           </motion.button>
 
           {/* Scrollable Content */}
-          <div ref={contentRef} className="h-full max-h-[90vh] overflow-y-auto">
+          <div 
+            ref={contentRef} 
+            data-lenis-prevent
+            className="h-full max-h-[90vh] overflow-y-auto"
+          >
             {/* Header Image */}
             <motion.div
               layoutId={`card-image-container-${project.id}`}
@@ -376,15 +412,17 @@ const ExpandedCard = ({ project, onClose }) => {
                 transition={{ delay: 0.45 }}
                 className="flex flex-wrap gap-4 pt-4"
               >
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 text-white rounded-full font-medium hover:bg-blue-50/80 transition-colors"
-                >
-                  View Live Project
-                  <ExternalLink size={16} />
-                </a>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 text-white rounded-full font-medium hover:bg-blue-50/80 transition-colors"
+                  >
+                    View Live Project
+                    <ExternalLink size={16} />
+                  </a>
+                )}
                 <a
                   href={project.github}
                   target="_blank"

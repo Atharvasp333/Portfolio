@@ -189,20 +189,24 @@ const expLogos = [
 
 const socialImgs = [
   {
-    name: "insta",
+    name: "instagram",
     imgPath: "/images/insta.png",
+    url: "https://www.instagram.com/atharva_pingale45/",
   },
   {
-    name: "fb",
-    imgPath: "/images/fb.png",
-  },
-  {
-    name: "x",
-    imgPath: "/images/x.png",
+    name: "github",
+    imgPath: "/images/github.png",
+    url: "https://github.com/Atharvasp333",
   },
   {
     name: "linkedin",
     imgPath: "/images/linkedin.png",
+    url: "https://www.linkedin.com/in/atharva-pingale-25387432a/",
+  },
+  {
+    name: "leetcode",
+    imgPath: "/images/leetcode.png",
+    url: "https://leetcode.com/u/Atharva_0506/",
   },
 ];
 

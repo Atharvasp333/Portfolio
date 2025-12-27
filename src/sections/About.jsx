@@ -1,4 +1,5 @@
 import { Instagram, Linkedin, Github } from 'lucide-react';
+import LeetCodeIcon from '../components/icons/LeetCodeIcon';
 
 const About = () => {
     return (
@@ -32,14 +33,17 @@ const About = () => {
                             {/* Name and Socials */}
                             <h3 className="text-2xl font-bold text-white mb-4">Atharva Pingale</h3>
                             <div className="flex gap-4">
-                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 rounded-full text-gray-300 hover:text-white hover:bg-white/20 transition-all">
+                                <a href="https://www.instagram.com/atharva_pingale45/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 rounded-full text-gray-300 hover:text-white hover:bg-white/20 transition-all">
                                     <Instagram size={20} />
                                 </a>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 rounded-full text-gray-300 hover:text-white hover:bg-white/20 transition-all">
+                                <a href="https://www.linkedin.com/in/atharva-pingale-25387432a/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 rounded-full text-gray-300 hover:text-white hover:bg-white/20 transition-all">
                                     <Linkedin size={20} />
                                 </a>
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 rounded-full text-gray-300 hover:text-white hover:bg-white/20 transition-all">
+                                <a href="https://github.com/Atharvasp333" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 rounded-full text-gray-300 hover:text-white hover:bg-white/20 transition-all">
                                     <Github size={20} />
+                                </a>
+                                <a href="https://leetcode.com/u/Atharva_0506/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 rounded-full text-gray-300 hover:text-white hover:bg-white/20 transition-all">
+                                    <LeetCodeIcon size={20} />
                                 </a>
                             </div>
                         </div>
