@@ -26,26 +26,26 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative overflow-hidden min-h-screen">
-      <div className="absolute top-0 left-0 z-10">
+      <div className="absolute top-0 left-0 z-0">
         <img src="/images/bg.png" alt="" />
       </div>
 
       <div className="hero-layout">
         {/* LEFT: Hero Content */}
-        <header className="flex flex-col justify-center w-full px-5 md:px-10 lg:px-20">
-          {/* Text Container with Proper Spacing */}
-          <div className="flex flex-col gap-6 max-w-4xl">
+        <header className="flex flex-col justify-center w-full lg:w-1/2 px-5 md:px-10 lg:px-16 relative z-20">
+          {/* Text Container - Compact */}
+          <div className="flex flex-col gap-3 max-w-lg">
             
             {/* Layer 1: Eyebrow Text */}
             <div className="hero-layer">
-              <p className="text-xl md:text-2xl uppercase tracking-widest text-gray-300 font-medium">
+              <p className="text-sm md:text-base uppercase tracking-widest text-gray-300 font-medium">
                 Hi, I'm Atharva.
               </p>
             </div>
 
             {/* Layer 2: Main Headline with Typewriter */}
             <div className="hero-layer">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-white">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-[1.15] text-white">
                 I build{" "}
                 <TypewriterEffect />
               </h1>
@@ -53,14 +53,14 @@ const Hero = () => {
 
             {/* Layer 3: Description */}
             <div className="hero-layer">
-              <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+              <p className="text-sm md:text-base text-gray-300 max-w-md leading-relaxed">
                 Transforming complex requirements into seamless, user-centric digital experiences.
               </p>
             </div>
 
             {/* Layer 4: CTA Buttons */}
-            <div className="hero-layer mt-2">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+            <div className="hero-layer mt-1">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
                 {/* Primary CTA - See Work */}
                 <CTAButton
                   text="See My Work"
@@ -128,7 +128,10 @@ const Hero = () => {
                       strokeLinecap="round" 
                       strokeLinejoin="round"
                     >
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                      <circle cx="9" cy="7" r="4"/>
+                      <line x1="19" x2="19" y1="8" y2="14"/>
+                      <line x1="22" x2="16" y1="11" y2="11"/>
                     </svg>
                   }
                   className="group"
@@ -139,8 +142,8 @@ const Hero = () => {
         </header>
 
         {/* RIGHT: 3D Model or Visual */}
-        <figure className="hidden md:flex items-center justify-center">
-          <div className="hero-3d-layout">
+        <figure className="hidden lg:flex w-1/2 items-center justify-center relative z-10">
+          <div className="w-full h-[70vh] relative">
             <HeroExperience />
           </div>
         </figure>

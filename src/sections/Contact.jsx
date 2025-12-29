@@ -62,13 +62,13 @@ const Contact = () => {
           title="Get in Touch – Let’s Connect"
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
         />
-        <div className="grid-12-cols mt-16">
+        <div className="grid-12-cols mt-10">
           <div className="xl:col-span-5">
-            <div className="flex-center card-border rounded-xl p-10">
+            <div className="flex-center card-border rounded-lg p-6">
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="w-full flex flex-col gap-7"
+                className="w-full flex flex-col gap-5"
               >
                 <div>
                   <label htmlFor="name">Your name</label>
@@ -123,8 +123,8 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div className="xl:col-span-7 min-h-96">
-            <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
+          <div className="xl:col-span-7 min-h-72">
+            <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-2xl overflow-hidden">
               <ContactExperience />
             </div>
           </div>

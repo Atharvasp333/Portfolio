@@ -6,29 +6,29 @@ import { skillCategories } from "../constants";
 const SkillCard = ({ category, index }) => {
   return (
     <CardContainer containerClassName="w-full">
-      <CardBody className="relative w-full h-full rounded-2xl p-6 bg-gradient-to-br from-black-200 to-black-300 border border-black-50 group/card">
+      <CardBody className="relative w-full h-full rounded-xl p-4 bg-gradient-to-br from-black-200 to-black-300 border border-black-50 group/card">
         {/* Glow effect on hover */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/10 to-purple-500/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-50/10 to-purple-500/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
         
         <CardItem translateZ={50} className="relative z-10">
-          <h3 className="text-xl font-bold text-white mb-4">{category.title}</h3>
+          <h3 className="text-base font-bold text-white mb-3">{category.title}</h3>
         </CardItem>
 
         <CardItem translateZ={30} className="relative z-10">
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2">
             {category.skills.map((skill) => {
               const IconComponent = skill.icon;
               return (
                 <motion.div
                   key={skill.name}
                   whileHover={{ scale: 1.1 }}
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-black-100/50 border border-black-50 hover:border-blue-50/50 transition-colors"
+                  className="flex items-center gap-1.5 px-2 py-1.5 rounded-md bg-black-100/50 border border-black-50 hover:border-blue-50/50 transition-colors"
                 >
                   <IconComponent
-                    className="w-5 h-5"
+                    className="w-4 h-4"
                     style={{ color: skill.color }}
                   />
-                  <span className="text-sm text-white-50">{skill.name}</span>
+                  <span className="text-xs text-white-50">{skill.name}</span>
                 </motion.div>
               );
             })}
@@ -41,7 +41,7 @@ const SkillCard = ({ category, index }) => {
 
 const Skills = () => {
   return (
-    <section id="skills" className="md:mt-40 mt-20 section-padding xl:px-0">
+    <section id="skills" className="md:mt-28 mt-14 section-padding xl:px-0">
       <div className="w-full h-full md:px-20 px-5">
         <TitleHeader
           title="How I Can Contribute & My Key Skills"
@@ -53,7 +53,7 @@ const Skills = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10"
         >
           {skillCategories.map((category, index) => (
             <motion.div

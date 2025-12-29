@@ -35,22 +35,22 @@ const CompactCard = ({ project, onClick, index }) => {
         </motion.div>
 
         {/* Content */}
-        <div className="p-5">
+        <div className="p-4">
           <motion.span
             layoutId={`card-category-${project.id}`}
-            className="text-blue-50 text-xs font-medium uppercase tracking-wider"
+            className="text-blue-50 text-[10px] font-medium uppercase tracking-wider"
           >
             {project.category}
           </motion.span>
           <motion.h3
             layoutId={`card-title-${project.id}`}
-            className="text-xl font-bold mt-2 group-hover:text-blue-50 transition-colors"
+            className="text-base font-bold mt-1.5 group-hover:text-blue-50 transition-colors"
           >
             {project.title}
           </motion.h3>
           <motion.p
             layoutId={`card-tagline-${project.id}`}
-            className="text-white-50 text-sm mt-2 line-clamp-2"
+            className="text-white-50 text-xs mt-1.5 line-clamp-2"
           >
             {project.tagline}
           </motion.p>
@@ -161,12 +161,12 @@ const ExpandedCard = ({ project, onClose }) => {
           <div 
             ref={contentRef} 
             data-lenis-prevent
-            className="h-full max-h-[90vh] overflow-y-auto"
+            className="h-full max-h-[90vh] overflow-y-auto overscroll-contain"
           >
-            {/* Header Image */}
+            {/* Header Image - Full Width Banner, Reduced Height */}
             <motion.div
               layoutId={`card-image-container-${project.id}`}
-              className="aspect-[16/9] overflow-hidden bg-transparent"
+              className="w-full h-40 md:h-52 lg:h-60 overflow-hidden bg-transparent"
             >
               <motion.img
                 layoutId={`card-image-${project.id}`}
@@ -177,24 +177,24 @@ const ExpandedCard = ({ project, onClose }) => {
             </motion.div>
 
             {/* Content */}
-            <div className="p-6 md:p-8 space-y-6">
+            <div className="p-4 md:p-5 space-y-3">
               {/* Title & Tagline */}
               <div>
                 <motion.span
                   layoutId={`card-category-${project.id}`}
-                  className="text-blue-50 text-sm font-medium uppercase tracking-wider"
+                  className="text-blue-50 text-xs font-medium uppercase tracking-wider"
                 >
                   {project.category}
                 </motion.span>
                 <motion.h2
                   layoutId={`card-title-${project.id}`}
-                  className="text-3xl md:text-4xl font-bold mt-2"
+                  className="text-lg md:text-xl font-bold mt-1"
                 >
                   {project.title}
                 </motion.h2>
                 <motion.p
                   layoutId={`card-tagline-${project.id}`}
-                  className="text-white-50 text-lg italic mt-2"
+                  className="text-white-50 text-xs italic mt-1"
                 >
                   {project.tagline}
                 </motion.p>
@@ -202,33 +202,33 @@ const ExpandedCard = ({ project, onClose }) => {
 
               {/* Description */}
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-white-50 leading-relaxed"
+                className="text-white-50 text-xs leading-relaxed"
               >
                 {project.description}
               </motion.p>
 
               {/* Key Features */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="space-y-4"
+                className="space-y-2"
               >
-                <h3 className="text-xl font-semibold">Key Features</h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <h3 className="text-sm font-semibold">Key Features</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-1.5">
                   {project.features.map((feature, index) => (
                     <motion.li
                       key={index}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 + index * 0.05 }}
-                      className="flex items-start gap-3 text-white-50"
+                      transition={{ delay: 0.3 + index * 0.03 }}
+                      className="flex items-start gap-1.5 text-white-50"
                     >
-                      <Check className="w-5 h-5 text-blue-50 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
+                      <Check className="w-3.5 h-3.5 text-blue-50 mt-0.5 flex-shrink-0" />
+                      <span className="text-xs">{feature}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -236,23 +236,23 @@ const ExpandedCard = ({ project, onClose }) => {
 
               {/* Tech Stack */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35 }}
-                className="space-y-4"
+                className="space-y-2"
               >
-                <h3 className="text-xl font-semibold">Tech Stack</h3>
-                <div className="flex flex-wrap gap-4">
+                <h3 className="text-sm font-semibold">Tech Stack</h3>
+                <div className="flex flex-wrap gap-2">
                   {project.skills.frontend.length > 0 && (
-                    <div className="space-y-2">
-                      <p className="text-white-50 text-xs uppercase tracking-wider">
+                    <div className="space-y-1">
+                      <p className="text-white-50 text-[10px] uppercase tracking-wider">
                         Frontend
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1">
                         {project.skills.frontend.map((skill) => (
                           <span
                             key={skill}
-                            className="px-3 py-1.5 bg-blue-50/10 text-blue-50 rounded-full text-xs font-medium"
+                            className="px-2 py-0.5 bg-blue-50/10 text-blue-50 rounded-full text-[10px] font-medium"
                           >
                             {skill}
                           </span>
@@ -261,15 +261,15 @@ const ExpandedCard = ({ project, onClose }) => {
                     </div>
                   )}
                   {project.skills.backend.length > 0 && (
-                    <div className="space-y-2">
-                      <p className="text-white-50 text-xs uppercase tracking-wider">
+                    <div className="space-y-1">
+                      <p className="text-white-50 text-[10px] uppercase tracking-wider">
                         Backend
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1">
                         {project.skills.backend.map((skill) => (
                           <span
                             key={skill}
-                            className="px-3 py-1.5 bg-green-500/10 text-green-400 rounded-full text-xs font-medium"
+                            className="px-2 py-0.5 bg-green-500/10 text-green-400 rounded-full text-[10px] font-medium"
                           >
                             {skill}
                           </span>
@@ -282,40 +282,40 @@ const ExpandedCard = ({ project, onClose }) => {
 
               {/* Conclusion */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="border-l-4 border-blue-50 pl-4 py-2"
+                className="border-l-2 border-blue-50 pl-2 py-0.5"
               >
-                <p className="text-white-50 italic">{project.conclusion}</p>
+                <p className="text-white-50 italic text-xs">{project.conclusion}</p>
               </motion.div>
 
               {/* Action Buttons */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.45 }}
-                className="flex flex-wrap gap-4 pt-4"
+                className="flex flex-wrap gap-2 pt-1"
               >
                 {project.live && (
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 text-white rounded-full font-medium hover:bg-blue-50/80 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-white rounded-full text-xs font-medium hover:bg-blue-50/80 transition-colors"
                   >
-                    View Live Project
-                    <ExternalLink size={16} />
+                    View Live
+                    <ExternalLink size={12} />
                   </a>
                 )}
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-black-100 text-white rounded-full font-medium hover:bg-black-50 transition-colors border border-black-50"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black-100 text-white rounded-full text-xs font-medium hover:bg-black-50 transition-colors border border-black-50"
                 >
-                  GitHub Repo
-                  <Github size={16} />
+                  GitHub
+                  <Github size={12} />
                 </a>
               </motion.div>
             </div>
@@ -335,28 +335,28 @@ const ShowcaseSection = () => {
   return (
     <section
       id="work"
-      className="relative z-10 md:mt-40 mt-20 section-padding xl:px-0"
+      className="relative z-10 md:mt-28 mt-14 section-padding xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5">
         {/* Header */}
-        <div className="flex flex-col items-center gap-5">
+        <div className="flex flex-col items-center gap-3">
           <div className="hero-badge">
             <p>🎨 Creative Work</p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-center">
             Featured{" "}
             <span className="bg-gradient-to-r from-blue-50 to-purple-400 bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
-          <p className="text-white-50 text-center max-w-2xl text-lg">
+          <p className="text-white-50 text-center max-w-2xl text-sm">
             Explore my recent work showcasing modern web and mobile applications
             built with cutting-edge technologies.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
           {showcaseProjects.map((project, index) => (
             <CompactCard
               key={project.id}

@@ -56,29 +56,29 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="flex-center md:mt-40 mt-20 section-padding xl:px-0"
+      className="flex-center md:mt-28 mt-14 section-padding xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5">
         <TitleHeader
           title="Professional Work Experience"
           sub="💼 My Career Overview"
         />
-        <div className="mt-32 relative">
-          <div className="relative z-50 xl:space-y-32 space-y-10">
+        <div className="mt-20 relative">
+          <div className="relative z-50 xl:space-y-20 space-y-8">
             {expCards.map((card) => (
               <div key={card.title} className="exp-card-wrapper">
                 
-                {/* --- IMAGE SECTION (FIXED) --- */}
+                    {/* --- IMAGE SECTION (FIXED) --- */}
                 <div className="xl:w-2/6">
                   <GlowCard card={card}>
                     {/* Added a container with padding and flex to center the image */}
-                    <div className="p-3 h-full w-full flex items-center justify-center bg-black/20 rounded-xl">
+                    <div className="p-2 h-full w-full flex items-center justify-center bg-black/20 rounded-lg">
                       <img 
                         src={card.imgPath} 
                         alt="exp-img" 
                         // object-contain: prevents cropping/stretching
                         // max-h-[200px]: ensures it doesn't get too tall
-                        className="w-full h-full object-contain rounded-lg max-h-[200px]" 
+                        className="w-full h-full object-contain rounded-lg max-h-[160px]" 
                       />
                     </div>
                   </GlowCard>
@@ -99,22 +99,22 @@ const Experience = () => {
                         <img 
                           src={card.logoPath} 
                           alt="logo" 
-                          className="w-10 h-10 md:w-14 md:h-14 object-contain rounded-full bg-white/10 p-1.5 shadow-md border border-white/5"
+                          className="w-8 h-8 md:w-10 md:h-10 object-contain rounded-full bg-white/10 p-1 shadow-md border border-white/5"
                         />
                       </div>
 
                       <div>
-                        <h1 className="font-semibold text-3xl">{card.title}</h1>
-                        <p className="my-5 text-white-50">
+                        <h1 className="font-semibold text-xl">{card.title}</h1>
+                        <p className="my-3 text-white-50 text-sm">
                           🗓️&nbsp;{card.date}
                         </p>
-                        <p className="text-[#839CB5] italic">
+                        <p className="text-[#839CB5] italic text-sm">
                           Responsibilities
                         </p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
+                        <ul className="list-disc ms-4 mt-3 flex flex-col gap-3 text-white-50">
                           {card.responsibilities.map(
                             (responsibility, index) => (
-                              <li key={index} className="text-lg">
+                              <li key={index} className="text-sm">
                                 {responsibility}
                               </li>
                             )

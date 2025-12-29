@@ -11,11 +11,11 @@ const CTAButton = ({
   target = null,
   className = ""
 }) => {
-  const baseStyles = "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm md:text-base font-medium rounded-lg transition-all duration-300 ease-in-out";
+  const baseStyles = "inline-flex items-center justify-center gap-1.5 px-4 py-2 text-xs md:text-sm font-medium rounded-md transition-all duration-300 ease-in-out";
   
   const variantStyles = {
     primary: "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:shadow-lg hover:shadow-purple-500/50 transform hover:-translate-y-0.5",
-    secondary: "bg-transparent border-2 border-gray-400 text-gray-300 hover:border-white hover:text-white hover:bg-white/5"
+    secondary: "bg-transparent border border-gray-400 text-gray-300 hover:border-white hover:text-white hover:bg-white/5"
   };
 
   const handleClick = (e) => {

@@ -42,7 +42,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="icon text-gray-400 hover:text-white transition-colors"
               >
-                <IconComponent size={24} />
+                <IconComponent size={18} />
               </a>
             );
           })}
