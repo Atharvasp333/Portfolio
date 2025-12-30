@@ -224,7 +224,7 @@ const showcaseProjects = [
     category: "Healthcare Web Platform",
     src: "/images/medimeet.png",
     bgColor: "bg-[#FFE7EB]",
-    live: "https://medi-meet-seven-ashy.vercel.app/",
+    live: "https://medi-meet-zeta.vercel.app/",
     github: "https://github.com/Atharvasp333/MediMeet",
     skills: {
       frontend: ["Next.js", "React", "TailwindCSS", "Shadcn UI"],
