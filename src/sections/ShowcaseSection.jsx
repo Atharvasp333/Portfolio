@@ -14,17 +14,17 @@ const CompactCard = ({ project, onClick, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="cursor-pointer group"
+      className="cursor-pointer group h-full"
     >
       <motion.div
-        className="relative rounded-2xl overflow-hidden bg-black-200 border border-black-50 hover:border-blue-50/30 transition-colors"
+        className="relative rounded-2xl overflow-hidden bg-black-200 border border-black-50 hover:border-blue-50/30 transition-colors h-full flex flex-col"
         whileHover={{ y: -8 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        {/* Image Container */}
+        {/* Image Container - Fixed aspect ratio */}
         <motion.div
           layoutId={`card-image-container-${project.id}`}
-          className="aspect-[4/3] overflow-hidden bg-transparent"
+          className="aspect-[4/3] overflow-hidden bg-transparent flex-shrink-0"
         >
           <motion.img
             layoutId={`card-image-${project.id}`}
@@ -34,8 +34,8 @@ const CompactCard = ({ project, onClick, index }) => {
           />
         </motion.div>
 
-        {/* Content */}
-        <div className="p-4">
+        {/* Content - Fixed height */}
+        <div className="p-4 flex flex-col flex-grow">
           <motion.span
             layoutId={`card-category-${project.id}`}
             className="text-blue-50 text-[10px] font-medium uppercase tracking-wider"
@@ -44,13 +44,13 @@ const CompactCard = ({ project, onClick, index }) => {
           </motion.span>
           <motion.h3
             layoutId={`card-title-${project.id}`}
-            className="text-base font-bold mt-1.5 group-hover:text-blue-50 transition-colors"
+            className="text-base font-bold mt-1.5 group-hover:text-blue-50 transition-colors min-h-[1.5rem]"
           >
             {project.title}
           </motion.h3>
           <motion.p
             layoutId={`card-tagline-${project.id}`}
-            className="text-white-50 text-xs mt-1.5 line-clamp-2"
+            className="text-white-50 text-xs mt-1.5 line-clamp-2 flex-grow"
           >
             {project.tagline}
           </motion.p>

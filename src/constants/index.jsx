@@ -6,6 +6,7 @@ import {
   FaGitAlt,
   FaFigma,
   FaHtml5,
+  FaGithub,
 } from "react-icons/fa";
 import {
   SiJavascript,
@@ -14,8 +15,9 @@ import {
   SiTailwindcss,
   SiFlutter,
   SiExpress,
-  SiNestjs,
-  SiSpringboot,
+  SiThreedotjs,
+  SiPrisma,
+  SiSocketdotio,
   SiMongodb,
   SiMysql,
   SiFirebase,
@@ -23,9 +25,10 @@ import {
   SiRedis,
   SiVercel,
   SiAdobeillustrator,
+  SiDocker,
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
-import { MdDesignServices } from "react-icons/md";
+import { MdDesignServices,MdOutlineBolt } from "react-icons/md";
 
 const navLinks = [
   { name: "About", link: "#about" },
@@ -170,28 +173,27 @@ const showcaseProjects = [
   },
   {
     id: 2,
-    title: "Signalist",
-    tagline: "AI-powered insights for smarter stock market decisions.",
-    category: "Web Application",
-    src: "/images/Signalist.png",
-    bgColor: "bg-[#1a1a2e]",
-    live: "https://signalist-stock-market-toolkit.vercel.app/",
-    github: "https://github.com/Atharvasp333/Signalist-Stock-Market-Toolkit",
+    title: "Multiversal Rush",
+    tagline: "Real-time 3D multiplayer web game featuring four immersive maps.",
+    category: "3D Web Game",
+    src: "/images/Multiversal Rush.png",
+    bgColor: "bg-[#1e1b4b]",
+    live: "https://stranger-strings-dev-hacks.vercel.app/",
+    github: "https://github.com/Atharvasp333/Multiversal-Rush",
     skills: {
-      frontend: ["Next.js", "React", "TypeScript", "Shadcn UI", "TailwindCSS"],
-      backend: ["Node.js", "MongoDB", "Better Auth", "Inngest", "Finnhub API", "Nodemailer"],
+      frontend: ["React", "React Three Fiber", "Three.js", "Tailwind CSS"],
+      backend: ["Node.js", "Express", "Socket.io", "MongoDB", "JWT"],
     },
-    description: "Signalist is an AI-powered stock market platform that helps users track real-time prices, analyze company performance, and receive intelligent alerts. Built with a modern full-stack architecture, it delivers personalized insights, automated workflows, and a seamless trading research experience.",
+    description: "Multiversal Rush is an immersive 3D multiplayer web game that brings competitive, team-based matches directly to the browser. Built entirely with modern web technologies, it features low-latency real-time synchronization, distinct interactive environments, and a comprehensive social backend to connect players seamlessly.",
     features: [
-      "Real-time stock price tracking with interactive charts",
-      "Advanced search and personalized watchlists",
-      "Price alerts, volume spike notifications, and email alerts",
-      "Detailed company insights including financials, news, and sentiment",
-      "AI-powered daily market digests and earnings notifications",
-      "Admin dashboard for stock management, news publishing, and user monitoring",
-      "Event-driven workflows using Inngest for automation and scalability",
+      "Fast-paced multiplayer gameplay set across four uniquely designed interactive maps",
+      "Low-latency, real-time game state synchronization powered by Socket.io",
+      "Immersive 3D environments and player mechanics rendered with React Three Fiber",
+      "Secure user authentication (JWT) with persistent player profiles",
+      "Integrated social ecosystem including a friend system and global live chat",
+      "Competitive leaderboard tracking to rank and showcase top players",
     ],
-    conclusion: "Signalist showcases how AI, event-driven systems, and modern web technologies can come together to build a scalable, real-time financial platform focused on data-driven decision making.",
+    conclusion: "Multiversal Rush demonstrates the power of the modern web stack, proving that complex, real-time 3D gaming experiences can be delivered directly in the browser without external game engines.",
   },
   {
     id: 3,
@@ -219,6 +221,54 @@ const showcaseProjects = [
   },
   {
     id: 4,
+    title: "SafeSight",
+    tagline: "AI-powered automated PPE detection and restricted zone auditing system.",
+    category: "Computer Vision & AI",
+    src: "/images/Safesight.png",
+    bgColor: "bg-[#0f172a]", // A dark, industrial slate blue
+    live: null, // Add your live link here
+    github: "https://github.com/Hackverse-AIML/wiet-hackverse-2-0-hackathon-project-submission-aiml-701-wa04_stranger_strings", // Add your GitHub link here
+    skills: {
+      frontend: ["React", "Tailwind CSS", "Recharts"], // For the Safety Dashboard
+      backend: ["Python", "OpenCV", "YOLOv8", "Node.js", "Socket.io"], // For the Real-time Processing Engine
+    },
+    description: "SafeSight is an intelligent computer vision platform designed to enhance safety in industrial environments. Acting as an automated safety auditor, it utilizes advanced object detection models to monitor workers in real-time. The system ensures strict compliance by immediately detecting missing Personal Protective Equipment (PPE) such as helmets and vests, while actively monitoring restricted zones for unauthorized access.",
+    features: [
+      "Real-time processing engine utilizing YOLO and OpenCV for high-accuracy object detection",
+      "Automated monitoring of mandatory safety gear including hard hats and high-visibility vests",
+      "Virtual geo-fencing to identify and track unauthorized entry into restricted industrial zones",
+      "Instantaneous alert system triggered by compliance violations or boundary breaches",
+      "Comprehensive Safety Dashboard providing visual feedback, analytics, and incident logging",
+    ],
+    conclusion: "SafeSight demonstrates the powerful application of AI and computer vision in solving critical industrial safety challenges, replacing manual monitoring with a highly scalable, automated solution.",
+  },
+  {
+    id: 5,
+    title: "Signalist",
+    tagline: "AI-powered insights for smarter stock market decisions.",
+    category: "Web Application",
+    src: "/images/Signalist.png",
+    bgColor: "bg-[#1a1a2e]",
+    live: "https://signalist-stock-market-toolkit.vercel.app/",
+    github: "https://github.com/Atharvasp333/Signalist-Stock-Market-Toolkit",
+    skills: {
+      frontend: ["Next.js", "React", "TypeScript", "Shadcn UI", "TailwindCSS"],
+      backend: ["Node.js", "MongoDB", "Better Auth", "Inngest", "Finnhub API", "Nodemailer"],
+    },
+    description: "Signalist is an AI-powered stock market platform that helps users track real-time prices, analyze company performance, and receive intelligent alerts. Built with a modern full-stack architecture, it delivers personalized insights, automated workflows, and a seamless trading research experience.",
+    features: [
+      "Real-time stock price tracking with interactive charts",
+      "Advanced search and personalized watchlists",
+      "Price alerts, volume spike notifications, and email alerts",
+      "Detailed company insights including financials, news, and sentiment",
+      "AI-powered daily market digests and earnings notifications",
+      "Admin dashboard for stock management, news publishing, and user monitoring",
+      "Event-driven workflows using Inngest for automation and scalability",
+    ],
+    conclusion: "Signalist showcases how AI, event-driven systems, and modern web technologies can come together to build a scalable, real-time financial platform focused on data-driven decision making.",
+  },
+  {
+    id: 6,
     title: "MediMeet",
     tagline: "Seamless doctor–patient consultations, anytime.",
     category: "Healthcare Web Platform",
@@ -259,10 +309,11 @@ const skillCategories = [
   {
     title: "Frontend Development",
     skills: [
+      { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
       { name: "React", icon: FaReact, color: "#61DAFB" },
       { name: "React Native", icon: FaReact, color: "#61DAFB" },
-      { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "Three.js (R3F)", icon: SiThreedotjs, color: "#FFFFFF" }, 
       { name: "Flutter", icon: SiFlutter, color: "#02569B" },
     ],
   },
@@ -271,8 +322,9 @@ const skillCategories = [
     skills: [
       { name: "Node.js", icon: FaNodeJs, color: "#339933" },
       { name: "Express.js", icon: SiExpress, color: "#FFFFFF" },
-      { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
-      { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F" },
+      { name: "Prisma ORM", icon: SiPrisma, color: "#2D3748" },
+      { name: "Socket.io", icon: SiSocketdotio, color: "#FFFFFF" },
+      { name: "Inngest", icon: MdOutlineBolt, color: "#E5945C" },
       { name: "REST APIs", icon: TbApi, color: "#FF6B6B" },
     ],
   },
@@ -280,16 +332,18 @@ const skillCategories = [
     title: "Databases",
     skills: [
       { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-      { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
       { name: "Redis", icon: SiRedis, color: "#DC382D" },
+      { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
     ],
   },
   {
     title: "Tools & Technologies",
     skills: [
       { name: "Git", icon: FaGitAlt, color: "#F05032" },
+      { name: "Github", icon: FaGithub, color: "#FFFFFF"},
+      { name: "Docker", icon: SiDocker, color: "#2496ED" },
       { name: "Vercel", icon: SiVercel, color: "#FFFFFF" },
       { name: "Agile/Scrum", icon: TbApi, color: "#0052CC" },
     ],
