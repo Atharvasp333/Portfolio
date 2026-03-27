@@ -68,22 +68,31 @@ const Experience = () => {
             {expCards.map((card) => (
               <div key={card.title} className="exp-card-wrapper">
                 
-                    {/* --- IMAGE SECTION (FIXED) --- */}
+                {/* --- LEFT COLUMN: JOB INFO + COMPANY IMAGE --- */}
                 <div className="xl:w-2/6">
                   <GlowCard card={card}>
-                    {/* Added a container with padding and flex to center the image */}
-                    <div className="p-2 h-full w-full flex items-center justify-center bg-black/20 rounded-lg">
-                      <img 
-                        src={card.imgPath} 
-                        alt="exp-img" 
-                        // object-contain: prevents cropping/stretching
-                        // max-h-[200px]: ensures it doesn't get too tall
-                        className="w-full h-full object-contain rounded-lg max-h-[160px]" 
-                      />
+                    <div className="p-4 h-full w-full flex flex-col justify-between bg-black/20 rounded-lg">
+                      {/* Job Title and Date at the top */}
+                      <div className="mb-4">
+                        <h1 className="font-semibold text-xl mb-2">{card.title}</h1>
+                        <p className="text-white-50 text-sm">
+                          🗓️&nbsp;{card.date}
+                        </p>
+                      </div>
+                      
+                      {/* Company Image at the bottom */}
+                      <div className="flex items-center justify-center mt-auto">
+                        <img 
+                          src={card.imgPath} 
+                          alt="exp-img" 
+                          className="w-full h-full object-contain rounded-lg max-h-[160px]" 
+                        />
+                      </div>
                     </div>
                   </GlowCard>
                 </div>
 
+                {/* --- RIGHT COLUMN: TIMELINE + RESPONSIBILITIES --- */}
                 <div className="xl:w-4/6">
                   <div className="flex items-start">
                     <div className="timeline-wrapper">
@@ -93,9 +102,8 @@ const Experience = () => {
                     
                     <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
                       
-                      {/* --- LOGO SECTION (FIXED) --- */}
+                      {/* --- LOGO SECTION (PRESERVED) --- */}
                       <div className="timeline-logo">
-                         {/* Added bg-white/10 and padding to make logos uniform */}
                         <img 
                           src={card.logoPath} 
                           alt="logo" 
@@ -103,15 +111,12 @@ const Experience = () => {
                         />
                       </div>
 
+                      {/* Responsibilities Section */}
                       <div>
-                        <h1 className="font-semibold text-xl">{card.title}</h1>
-                        <p className="my-3 text-white-50 text-sm">
-                          🗓️&nbsp;{card.date}
-                        </p>
-                        <p className="text-[#839CB5] italic text-sm">
+                        <p className="text-[#839CB5] italic text-sm mb-3">
                           Responsibilities
                         </p>
-                        <ul className="list-disc ms-4 mt-3 flex flex-col gap-3 text-white-50">
+                        <ul className="list-disc ms-4 flex flex-col gap-3 text-white-50">
                           {card.responsibilities.map(
                             (responsibility, index) => (
                               <li key={index} className="text-sm">
